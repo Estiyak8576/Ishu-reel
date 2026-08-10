@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reels & Movie Web App</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/css/Style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar"> 
+            <div class="navbar_container">
+                <p class="nav_logo">Ishu</p>
+                <a href="index.html">Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="v_gap">
+            <h1>Ishu hottest reel</h1>
+        </div>
+    </main>
+
+    <!-- ভিডিও গ্রিড সেকশন -->
+    <section class="orginal_video" id="videoGrid">
+        <div class="video-card" data-title="Aarohi Mehta (httpswww.facebook.comsharer18HE4g2wio)" data-src="./Assets/video/Aarohi Mehta (httpswww.facebook.comsharer18HE4g2wio).mp4">
+            <video src="./Assets/video/Aarohi Mehta (httpswww.facebook.comsharer18HE4g2wio).mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Aarohi Mehta (httpswww.facebook.comsharer18HE4g2wio)</span>
+        </div>
+        <div class="video-card" data-title="arohi Mehta(httpswww.facebook.comsharer1DS1Afvkdp)" data-src="./Assets/video/Aarohi Mehta(httpswww.facebook.comsharer1DS1Afvkdp).mp4">
+            <video src="./Assets/video/Aarohi Mehta(httpswww.facebook.comsharer1DS1Afvkdp).mp4" muted loop preload="metadata"></video>
+            <span class="video-title">arohi Mehta(httpswww.facebook.comsharer1DS1Afvkdp)</span>
+        </div>
+        <div class="video-card" data-title="Anshu choedhary (httpswww.facebook.comsharer19Jf4crjn2)" data-src="./Assets/video/Anshu choedhary (httpswww.facebook.comsharer19Jf4crjn2).mp4">
+            <video src="./Assets/video/Anshu choedhary (httpswww.facebook.comsharer19Jf4crjn2).mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Anshu choedhary (httpswww.facebook.comsharer19Jf4crjn2)</span>
+        </div>
+        <div class="video-card" data-title="Neha Nandan(httpswww.facebook.comsharer197QqdNbX2)" data-src="./Assets/video/Neha Nandan(httpswww.facebook.comsharer197QqdNbX2).mp4">
+            <video src="./Assets/video/Neha Nandan(httpswww.facebook.comsharer197QqdNbX2).mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Neha Nandan(httpswww.facebook.comsharer197QqdNbX2)</span>
+        </div>
+        <div class="video-card" data-title="Shivangilohari (httpswww.facebook.comsharer18ZFqa4HjE)" data-src="./Assets/video/Shivangilohari (httpswww.facebook.comsharer18ZFqa4HjE).mp4">
+            <video src="./Assets/video/Shivangilohari (httpswww.facebook.comsharer18ZFqa4HjE).mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Shivangilohari (httpswww.facebook.comsharer18ZFqa4HjE)</span>
+        </div>
+        <div class="video-card" data-title="Zanni Jaani (httpswww.facebook.comsharer1RPcEig18y)" data-src="./Assets/video/Zanni Jaani (httpswww.facebook.comsharer1RPcEig18y).mp4">
+            <video src="./Assets/video/Zanni Jaani (httpswww.facebook.comsharer1RPcEig18y).mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Zanni Jaani (httpswww.facebook.comsharer1RPcEig18y)</span>
+        </div>
+    </section>
+
+    <!-- রিলস ভিডিও মোডাল প্লেয়ার -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <div class="modal-controls">
+                <button class="ctrl-btn max-btn" id="maxBtn" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
+                <button class="ctrl-btn minus-btn" id="minusBtn" title="Minimize"><i class="fa-solid fa-minus"></i></button>
+                <button class="ctrl-btn close-btn" id="closeBtn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="reel-player-box">
+                <div class="video-wrapper" id="videoWrapper">
+                    <video id="modalVideo" controls autoplay playsinline loop></video>
+                    
+                    <div class="skip-indicator left" id="skipLeft"><i class="fa-solid fa-rotate-left"></i> -10s</div>
+                    <div class="skip-indicator right" id="skipRight"><i class="fa-solid fa-rotate-right"></i> +10s</div>
+                    
+                    <div class="reel-info">
+                        <h2 id="modalVideoTitle">Movie Title</h2>
+                    </div>
+                </div>
+                
+                <div class="skip-buttons">
+                    <button id="rewindBtn" class="skip-action-btn"><i class="fa-solid fa-backward-step"></i> -10s</button>
+                    <button id="forwardBtn" class="skip-action-btn">+10s <i class="fa-solid fa-forward-step"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Assets/javascript/javascript.js"></script>
+</body>
+</html>
