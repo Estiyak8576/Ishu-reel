@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const title = (card.getAttribute("data-title") || card.querySelector(".video-title")?.textContent || "").toLowerCase();
 
             if (title.includes(query)) {
-                card.style.display = ""; // ভিডিও কার্ড দেখাবে
+                card.style.display = ""; 
                 matchCount++;
             } else {
-                card.style.display = "none"; // হাইড করবে
+                card.style.display = "none"; 
             }
         });
 
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateActiveVideoList();
 
-    // ৫. মোডাল প্লেয়ার
+    // ৫. মোডাল প্লেয়ার ওপেন
     function openModal(index) {
         if (index < 0 || index >= activeVideoList.length) return;
 
@@ -121,10 +121,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 modalVideo.play();
             });
         }
+
+        // মোবাইল ডিভাইসে থাকলে সরাসরি ফুলস্ক্রিন করা
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                if (modalVideo.requestFullscreen) {
+                    modalVideo.requestFullscreen().catch(() => {});
+                } else if (modalVideo.webkitRequestFullscreen) { /* Safari / iOS */
+                    modalVideo.webkitRequestFullscreen();
+                }
+            }, 300);
+        }
     }
 
-    // ৬. স্ক্রোল নেভিগেশন
+    // ৬. মাউস হুইল ও টাচ সোয়াইপ নেভিগেশন (উপরে/নিচে স্ক্রোল করার জন্য)
     if (videoWrapper) {
+        // মাউস হুইল
         videoWrapper.addEventListener("wheel", (e) => {
             if (!videoModal.classList.contains("active") || isScrolling) return;
 
@@ -137,6 +149,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (currentVideoIndex > 0) openModal(currentVideoIndex - 1);
             }
         });
+
+        // মোবাইলের জন্য টাচ সোয়াইপ লজিক
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        videoWrapper.addEventListener("touchstart", (e) => {
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        videoWrapper.addEventListener("touchend", (e) => {
+            if (!videoModal.classList.contains("active") || isScrolling) return;
+            touchEndY = e.changedTouches[0].screenY;
+
+            const swipeDistance = touchStartY - touchEndY;
+
+            if (Math.abs(swipeDistance) > 50) { // ৫০ পিক্সেলের বেশি সোয়াইপ হলে ট্রিগার হবে
+                isScrolling = true;
+                setTimeout(() => { isScrolling = false; }, 600);
+
+                if (swipeDistance > 0) {
+                    // উপরে সোয়াইপ (পরের ভিডিও)
+                    if (currentVideoIndex < activeVideoList.length - 1) openModal(currentVideoIndex + 1);
+                } else {
+                    // নিচে সোয়াইপ (আগের ভিডিও)
+                    if (currentVideoIndex > 0) openModal(currentVideoIndex - 1);
+                }
+            }
+        }, { passive: true });
     }
 
     // ৭. ১০ সেকেন্ড স্কিপ কন্ট্রোল
@@ -155,9 +195,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (maxBtn) {
         maxBtn.addEventListener("click", () => {
             if (!document.fullscreenElement) {
-                modalVideo.requestFullscreen?.();
+                if (modalVideo.requestFullscreen) {
+                    modalVideo.requestFullscreen();
+                } else if (modalVideo.webkitRequestFullscreen) {
+                    modalVideo.webkitRequestFullscreen();
+                }
             } else {
-                document.exitFullscreen?.();
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
             }
         });
     }
@@ -173,6 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
             videoModal.classList.remove("active", "minimized");
             modalVideo.pause();
             modalVideo.src = "";
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+            }
         });
     }
 });
