@@ -13,7 +13,13 @@
         <nav class="navbar"> 
             <div class="navbar_container">
                 <p class="nav_logo">Ishu</p>
-                <a href="index.html">Home</a>
+                <div class="nav_right">
+                    <a href="index.html">Home</a>
+                    <div class="search_box">
+                        <input type="text" id="searchInput" placeholder="Search reels...">
+                        <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -23,6 +29,12 @@
             <h1>Ishu hottest reel</h1>
         </div>
     </main>
+
+    <!-- নো ম্যাচ / কোনো ভিডিও না পাওয়া গেলে দেখাবে -->
+    <div id="noResults" class="no-results" style="display: none;">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>কোনো ভিডিও পাওয়া যায়নি!</p>
+    </div>
 
     <!-- ভিডিও গ্রিড সেকশন -->
     <section class="orginal_video" id="videoGrid">
@@ -454,206 +466,434 @@
             <video src="./Assets/video/Sunali Khan httpswww.facebook.comsharer1A9XcfHJYe.mp4" muted loop preload="metadata"></video>
             <span class="video-title">Sunali Khan httpswww.facebook.comsharer1A9XcfHJYe</span>
         </div>
-        <div class="video-card" data-title="Sunali Khan httpswww.facebook.comsharer1A9XcfHJYe" data-src="./Assets/video/Sunali Khan httpswww.facebook.comsharer1A9XcfHJYe.mp4">
-            <video src="./Assets/video/Sunali Khan httpswww.facebook.comsharer1A9XcfHJYe.mp4" muted loop preload="metadata"></video>
-            <span class="video-title">Sunali Khan httpswww.facebook.comsharer1A9XcfHJYe</span>
+        <div class="video-card" data-title="Nusrat joya httpswww.facebook.comsharer1DUGcL6U4q" data-src="./Assets/video/Nusrat joya httpswww.facebook.comsharer1DUGcL6U4q.mp4">
+            <video src="./Assets/video/Nusrat joya httpswww.facebook.comsharer1DUGcL6U4q.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Nusrat joya httpswww.facebook.comsharer1DUGcL6U4q</span>
         </div>
         <div class="video-card" data-title="Neetipatel11 httpswww.facebook.comsharer1U6wqruBQM" data-src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1U6wqruBQM.mp4">
-    <video src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1U6wqruBQM.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Neetipatel11 httpswww.facebook.comsharer1U6wqruBQM</span>
+            <video src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1U6wqruBQM.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Neetipatel11 httpswww.facebook.comsharer1U6wqruBQM</span>
+        </div>
+        <div class="video-card" data-title="Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi" data-src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi.mp4">
+            <video src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi</span>
+        </div>
+        <div class="video-card" data-title="Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ" data-src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ.mp4">
+            <video src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ</span>
+        </div>
+        <div class="video-card" data-title="Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq" data-src="./Assets/video/Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq.mp4">
+            <video src="./Assets/video/Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq</span>
+        </div>
+        <div class="video-card" data-title="Efthy httpswww.facebook.comsharer1LNYqN1Asu" data-src="./Assets/video/Efthy httpswww.facebook.comsharer1LNYqN1Asu.mp4">
+            <video src="./Assets/video/Efthy httpswww.facebook.comsharer1LNYqN1Asu.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Efthy httpswww.facebook.comsharer1LNYqN1Asu</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer1987KueGEP" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1987KueGEP.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1987KueGEP.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer1987KueGEP</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer1S8uCtvS52" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1S8uCtvS52.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1S8uCtvS52.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer1S8uCtvS52</span>
+        </div>
+        <div class="video-card" data-title="Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S" data-src="./Assets/video/Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S.mp4">
+            <video src="./Assets/video/Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S</span>
+        </div>
+        <div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf.mp4">
+            <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf</span>
+        </div>
+        <div class="video-card" data-title="Namrata Tiwari" data-src="./Assets/video/Namrata Tiwari.mp4">
+            <video src="./Assets/video/Namrata Tiwari.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Namrata Tiwari</span>
+        </div>
+        <div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ.mp4">
+            <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ</span>
+        </div>
+        <div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg.mp4">
+            <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg</span>
+        </div>
+        <div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t.mp4">
+            <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t</span>
+        </div>
+        <div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K.mp4">
+            <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K</span>
+        </div>
+        <div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer1DW3croZzi" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer1DW3croZzi.mp4">
+            <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer1DW3croZzi.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Monika Sharma httpswww.facebook.comsharer1DW3croZzi</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19XR9BBsiR" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19XR9BBsiR.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19XR9BBsiR.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer19XR9BBsiR</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19LnYBQuQc" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LnYBQuQc.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LnYBQuQc.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer19LnYBQuQc</span>
+        </div>
+        <div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19LDEvqmnd" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LDEvqmnd.mp4">
+            <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LDEvqmnd.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Ankita Dave httpswww.facebook.comsharer19LDEvqmnd</span>
+        </div>
+        <div class="video-card" data-title="Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2" data-src="./Assets/video/Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2.mp4">
+            <video src="./Assets/video/Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2</span>
+        </div>
+        <div class="video-card" data-title="Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm" data-src="./Assets/video/Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm.mp4">
+            <video src="./Assets/video/Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm</span>
+        </div>
+        <div class="video-card" data-title="Rahul Kumar httpswww.facebook.comsharer192iiHfE7N" data-src="./Assets/video/Rahul Kumar httpswww.facebook.comsharer192iiHfE7N.mp4">
+            <video src="./Assets/video/Rahul Kumar httpswww.facebook.comsharer192iiHfE7N.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Rahul Kumar httpswww.facebook.comsharer192iiHfE7N</span>
+        </div>
+        <div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer19UH8c8aqp" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19UH8c8aqp.mp4">
+            <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19UH8c8aqp.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Monika Sharma httpswww.facebook.comsharer19UH8c8aqp</span>
+        </div>
+        <div class="video-card" data-title="Krishna Singh httpswww.facebook.comsharer1DJyULpZo1" data-src="./Assets/video/Krishna Singh httpswww.facebook.comsharer1DJyULpZo1.mp4">
+            <video src="./Assets/video/Krishna Singh httpswww.facebook.comsharer1DJyULpZo1.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Krishna Singh httpswww.facebook.comsharer1DJyULpZo1</span>
+        </div>
+        <div class="video-card" data-title="Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP" data-src="./Assets/video/Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP.mp4">
+            <video src="./Assets/video/Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP</span>
+        </div>
+        <div class="video-card" data-title="Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH" data-src="./Assets/video/Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH.mp4">
+            <video src="./Assets/video/Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH</span>
+        </div>
+        <div class="video-card" data-title="Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg" data-src="./Assets/video/Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg.mp4">
+            <video src="./Assets/video/Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg</span>
+        </div>
+        <div class="video-card" data-title="Anika Verse httpswww.facebook.comsharer1PyfP5qbE8" data-src="./Assets/video/Anika Verse httpswww.facebook.comsharer1PyfP5qbE8.mp4">
+            <video src="./Assets/video/Anika Verse httpswww.facebook.comsharer1PyfP5qbE8.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Anika Verse httpswww.facebook.comsharer1PyfP5qbE8</span>
+        </div>
+        <div class="video-card" data-title="Aanchal01 httpswww.facebook.comsharer1ERPpZSArW" data-src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1ERPpZSArW.mp4">
+            <video src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1ERPpZSArW.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Aanchal01 httpswww.facebook.comsharer1ERPpZSArW</span>
+        </div>
+        <div class="video-card" data-title="Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo" data-src="./Assets/video/Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo.mp4">
+            <video src="./Assets/video/Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo</span>
+        </div>
+        <div class="video-card" data-title="The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e" data-src="./Assets/video/The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e.mp4">
+            <video src="./Assets/video/The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e</span>
+        </div>
+        <div class="video-card" data-title="Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6" data-src="./Assets/video/Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6.mp4">
+            <video src="./Assets/video/Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6</span>
+        </div>
+        <div class="video-card" data-title="Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs" data-src="./Assets/video/Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs.mp4">
+            <video src="./Assets/video/Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs</span>
+        </div>
+        <div class="video-card" data-title="sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ" data-src="./Assets/video/sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ.mp4">
+            <video src="./Assets/video/sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ</span>
+        </div>
+        <div class="video-card" data-title="Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N" data-src="./Assets/video/Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N.mp4">
+            <video src="./Assets/video/Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N</span>
+        </div>
+        <div class="video-card" data-title="Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z" data-src="./Assets/video/Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z.mp4">
+            <video src="./Assets/video/Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z</span>
+        </div>
+        <div class="video-card" data-title="Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs" data-src="./Assets/video/Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs.mp4">
+            <video src="./Assets/video/Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs</span>
+        </div>
+        <div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj.mp4">
+            <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj</span>
+        </div>
+        <div class="video-card" data-title="hot dance queens httpswww.facebook.comsharer1YGZGQckrA" data-src="./Assets/video/hot dance queens httpswww.facebook.comsharer1YGZGQckrA.mp4">
+            <video src="./Assets/video/hot dance queens httpswww.facebook.comsharer1YGZGQckrA.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">hot dance queens httpswww.facebook.comsharer1YGZGQckrA</span>
+        </div>
+        <div class="video-card" data-title="Angel Enishu httpswww.facebook.comsharer19FPLGb1FY" data-src="./Assets/video/Angel Enishu httpswww.facebook.comsharer19FPLGb1FY.mp4">
+            <video src="./Assets/video/Angel Enishu httpswww.facebook.comsharer19FPLGb1FY.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Angel Enishu httpswww.facebook.comsharer19FPLGb1FY</span>
+        </div>
+        <div class="video-card" data-title="Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR" data-src="./Assets/video/Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR.mp4">
+            <video src="./Assets/video/Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR.mp4" muted loop preload="metadata"></video>
+            <span class="video-title">Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR</span>
+        </div>
+        <div class="video-card" data-title="Georgiana Loredana Gavrila httpswww.facebook.comsharer1Cm6qTqrfd" data-src="./Assets/video/Georgiana Loredana Gavrila httpswww.facebook.comsharer1Cm6qTqrfd.mp4">
+    <video src="./Assets/video/Georgiana Loredana Gavrila httpswww.facebook.comsharer1Cm6qTqrfd.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Georgiana Loredana Gavrila httpswww.facebook.comsharer1Cm6qTqrfd</span>
 </div>
-<div class="video-card" data-title="Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi" data-src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi.mp4">
-    <video src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Neetipatel11 httpswww.facebook.comsharer1Huo9oAjMi</span>
+<div class="video-card" data-title="Dancer reel httpswww.facebook.comreel3415800145256778mibextid=9drbnH&s=yWDuG2&fs=e" data-src="./Assets/video/Dancer reel httpswww.facebook.comreel3415800145256778mibextid=9drbnH&s=yWDuG2&fs=e.mp4">
+    <video src="./Assets/video/Dancer reel httpswww.facebook.comreel3415800145256778mibextid=9drbnH&s=yWDuG2&fs=e.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Dancer reel httpswww.facebook.comreel3415800145256778mibextid=9drbnH&s=yWDuG2&fs=e</span>
 </div>
-<div class="video-card" data-title="Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ" data-src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ.mp4">
-    <video src="./Assets/video/Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Neetipatel11 httpswww.facebook.comsharer1EPbqY5dbQ</span>
+<div class="video-card" data-title="Aanchal01 httpswww.facebook.comsharer1ExDgVkW9b" data-src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1ExDgVkW9b.mp4">
+    <video src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1ExDgVkW9b.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Aanchal01 httpswww.facebook.comsharer1ExDgVkW9b</span>
 </div>
-<div class="video-card" data-title="Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq" data-src="./Assets/video/Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq.mp4">
-    <video src="./Assets/video/Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Kirti Rajput  httpswww.facebook.comsharer1DHQxywUEq</span>
+<div class="video-card" data-title="Aaysha official httpswww.facebook.comsharer19FM4XqeN4" data-src="./Assets/video/Aaysha official httpswww.facebook.comsharer19FM4XqeN4.mp4">
+    <video src="./Assets/video/Aaysha official httpswww.facebook.comsharer19FM4XqeN4.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Aaysha official httpswww.facebook.comsharer19FM4XqeN4</span>
 </div>
-<div class="video-card" data-title="Efthy httpswww.facebook.comsharer1LNYqN1Asu" data-src="./Assets/video/Efthy httpswww.facebook.comsharer1LNYqN1Asu.mp4">
-    <video src="./Assets/video/Efthy httpswww.facebook.comsharer1LNYqN1Asu.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Efthy httpswww.facebook.comsharer1LNYqN1Asu</span>
+<div class="video-card" data-title="Shivangilohar httpswww.facebook.comsharer1Bcs584CdA" data-src="./Assets/video/Shivangilohar httpswww.facebook.comsharer1Bcs584CdA.mp4">
+    <video src="./Assets/video/Shivangilohar httpswww.facebook.comsharer1Bcs584CdA.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Shivangilohar httpswww.facebook.comsharer1Bcs584CdA</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer1987KueGEP" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1987KueGEP.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1987KueGEP.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer1987KueGEP</span>
+<div class="video-card" data-title="Sakshi walke httpswww.facebook.comsharer1Fbh58EM3P" data-src="./Assets/video/Sakshi walke httpswww.facebook.comsharer1Fbh58EM3P.mp4">
+    <video src="./Assets/video/Sakshi walke httpswww.facebook.comsharer1Fbh58EM3P.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Sakshi walke httpswww.facebook.comsharer1Fbh58EM3P</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer19CJ3gHiqW</span>
+<div class="video-card" data-title="Saru khadka httpswww.facebook.comsharer1BrZPn7FJn" data-src="./Assets/video/Saru khadka httpswww.facebook.comsharer1BrZPn7FJn.mp4">
+    <video src="./Assets/video/Saru khadka httpswww.facebook.comsharer1BrZPn7FJn.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Saru khadka httpswww.facebook.comsharer1BrZPn7FJn</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer18AMMZV1Bm</span>
+<div class="video-card" data-title="Saregama httpswww.facebook.comsharer1P9Jn4hPqa" data-src="./Assets/video/Saregama httpswww.facebook.comsharer1P9Jn4hPqa.mp4">
+    <video src="./Assets/video/Saregama httpswww.facebook.comsharer1P9Jn4hPqa.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Saregama httpswww.facebook.comsharer1P9Jn4hPqa</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer1S8uCtvS52" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1S8uCtvS52.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer1S8uCtvS52.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer1S8uCtvS52</span>
+<div class="video-card" data-title="Aanchal01 httpswww.facebook.comsharer1HMKrwhyay" data-src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1HMKrwhyay.mp4">
+    <video src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1HMKrwhyay.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Aanchal01 httpswww.facebook.comsharer1HMKrwhyay</span>
 </div>
-<div class="video-card" data-title="Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S" data-src="./Assets/video/Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S.mp4">
-    <video src="./Assets/video/Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Sakshi Nagpal httpswww.facebook.comsharer19HhqrBE9S</span>
+<div class="video-card" data-title="Shree httpswww.facebook.comsharer1CD5kuZVsR" data-src="./Assets/video/Shree httpswww.facebook.comsharer1CD5kuZVsR.mp4">
+    <video src="./Assets/video/Shree httpswww.facebook.comsharer1CD5kuZVsR.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Shree httpswww.facebook.comsharer1CD5kuZVsR</span>
 </div>
-<div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf.mp4">
-    <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer19FCz2Xyuf</span>
+<div class="video-card" data-title="Shree httpswww.facebook.comsharer1BRsVutdky" data-src="./Assets/video/Shree httpswww.facebook.comsharer1BRsVutdky.mp4">
+    <video src="./Assets/video/Shree httpswww.facebook.comsharer1BRsVutdky.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Shree httpswww.facebook.comsharer1BRsVutdky</span>
 </div>
-<div class="video-card" data-title="Namrata Tiwari" data-src="./Assets/video/Namrata Tiwari.mp4">
-    <video src="./Assets/video/Namrata Tiwari.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Namrata Tiwari</span>
+<div class="video-card" data-title="Roji official httpswww.facebook.comsharer1HZL2X2xGA" data-src="./Assets/video/Roji official httpswww.facebook.comsharer1HZL2X2xGA.mp4">
+    <video src="./Assets/video/Roji official httpswww.facebook.comsharer1HZL2X2xGA.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Roji official httpswww.facebook.comsharer1HZL2X2xGA</span>
 </div>
-<div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ.mp4">
-    <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer17iVqNGbgZ</span>
+<div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer1BQo4Bdz3A" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer1BQo4Bdz3A.mp4">
+    <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer1BQo4Bdz3A.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Monika Sharma httpswww.facebook.comsharer1BQo4Bdz3A</span>
 </div>
-<div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg.mp4">
-    <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer1MbvGBi1qg</span>
+<div class="video-card" data-title="Hot girl httpswww.facebook.comsharer1PKrxuyBRc" data-src="./Assets/video/Hot girl httpswww.facebook.comsharer1PKrxuyBRc.mp4">
+    <video src="./Assets/video/Hot girl httpswww.facebook.comsharer1PKrxuyBRc.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Hot girl httpswww.facebook.comsharer1PKrxuyBRc</span>
 </div>
-<div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t.mp4">
-    <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer1FEG1Q2M2t</span>
+<div class="video-card" data-title="Poonam Mehta 37 httpswww.facebook.comsharer1TMNNCfWwN" data-src="./Assets/video/Poonam Mehta 37 httpswww.facebook.comsharer1TMNNCfWwN.mp4">
+    <video src="./Assets/video/Poonam Mehta 37 httpswww.facebook.comsharer1TMNNCfWwN.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Poonam Mehta 37 httpswww.facebook.comsharer1TMNNCfWwN</span>
 </div>
-<div class="video-card" data-title="Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K" data-src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K.mp4">
-    <video src="./Assets/video/Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Namrata Tiwari httpswww.facebook.comsharer1BimNPBJ1K</span>
+<div class="video-card" data-title="Gayatri nishad httpswww.facebook.comsharer19HgsVnA8E" data-src="./Assets/video/Gayatri nishad httpswww.facebook.comsharer19HgsVnA8E.mp4">
+    <video src="./Assets/video/Gayatri nishad httpswww.facebook.comsharer19HgsVnA8E.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Gayatri nishad httpswww.facebook.comsharer19HgsVnA8E</span>
 </div>
-<div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer1DW3croZzi" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer1DW3croZzi.mp4">
-    <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer1DW3croZzi.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Monika Sharma httpswww.facebook.comsharer1DW3croZzi</span>
+<div class="video-card" data-title="Khush Kaur httpswww.facebook.comsharer1L5Sq3kRWC" data-src="./Assets/video/Khush Kaur httpswww.facebook.comsharer1L5Sq3kRWC.mp4">
+    <video src="./Assets/video/Khush Kaur httpswww.facebook.comsharer1L5Sq3kRWC.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Khush Kaur httpswww.facebook.comsharer1L5Sq3kRWC</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19XR9BBsiR" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19XR9BBsiR.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19XR9BBsiR.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer19XR9BBsiR</span>
+<div class="video-card" data-title="Sanjoo prajapoti httpswww.facebook.comsharer1DQgyMjN8r" data-src="./Assets/video/Sanjoo prajapoti httpswww.facebook.comsharer1DQgyMjN8r.mp4">
+    <video src="./Assets/video/Sanjoo prajapoti httpswww.facebook.comsharer1DQgyMjN8r.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Sanjoo prajapoti httpswww.facebook.comsharer1DQgyMjN8r</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19LnYBQuQc" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LnYBQuQc.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LnYBQuQc.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer19LnYBQuQc</span>
+<div class="video-card" data-title="Khush Kaur httpswww.facebook.comsharer1EoMyQuqfD" data-src="./Assets/video/Khush Kaur httpswww.facebook.comsharer1EoMyQuqfD.mp4">
+    <video src="./Assets/video/Khush Kaur httpswww.facebook.comsharer1EoMyQuqfD.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Khush Kaur httpswww.facebook.comsharer1EoMyQuqfD</span>
 </div>
-<div class="video-card" data-title="Ankita Dave httpswww.facebook.comsharer19LDEvqmnd" data-src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LDEvqmnd.mp4">
-    <video src="./Assets/video/Ankita Dave httpswww.facebook.comsharer19LDEvqmnd.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Ankita Dave httpswww.facebook.comsharer19LDEvqmnd</span>
+<div class="video-card" data-title="Shikharana3028 httpswww.facebook.comsharer19MZ29c5xV" data-src="./Assets/video/Shikharana3028 httpswww.facebook.comsharer19MZ29c5xV.mp4">
+    <video src="./Assets/video/Shikharana3028 httpswww.facebook.comsharer19MZ29c5xV.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Shikharana3028 httpswww.facebook.comsharer19MZ29c5xV</span>
 </div>
-<div class="video-card" data-title="Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2" data-src="./Assets/video/Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2.mp4">
-    <video src="./Assets/video/Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Sapna Timisina httpswww.facebook.comsharer1CkFbm5Ta2</span>
+<div class="video-card" data-title="Barsha Hazari (httpswww.facebook.comsharer18kYsDqbcy)" data-src="./Assets/video/Barsha Hazari (httpswww.facebook.comsharer18kYsDqbcy).mp4">
+    <video src="./Assets/video/Barsha Hazari (httpswww.facebook.comsharer18kYsDqbcy).mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Barsha Hazari (httpswww.facebook.comsharer18kYsDqbcy)</span>
 </div>
-<div class="video-card" data-title="Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm" data-src="./Assets/video/Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm.mp4">
-    <video src="./Assets/video/Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Rahul Offical httpswww.facebook.comsharer1EYEJdQRFm</span>
+<div class="video-card" data-title="Courtney Sanderson httpswww.facebook.comsharer1F7eyfdAcz" data-src="./Assets/video/Courtney Sanderson httpswww.facebook.comsharer1F7eyfdAcz.mp4">
+    <video src="./Assets/video/Courtney Sanderson httpswww.facebook.comsharer1F7eyfdAcz.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Courtney Sanderson httpswww.facebook.comsharer1F7eyfdAcz</span>
 </div>
-<div class="video-card" data-title="Rahul Kumar httpswww.facebook.comsharer192iiHfE7N" data-src="./Assets/video/Rahul Kumar httpswww.facebook.comsharer192iiHfE7N.mp4">
-    <video src="./Assets/video/Rahul Kumar httpswww.facebook.comsharer192iiHfE7N.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Rahul Kumar httpswww.facebook.comsharer192iiHfE7N</span>
+<div class="video-card" data-title="Wahida khan httpswww.facebook.comsharer1EWi24k1b5" data-src="./Assets/video/Wahida khan httpswww.facebook.comsharer1EWi24k1b5.mp4">
+    <video src="./Assets/video/Wahida khan httpswww.facebook.comsharer1EWi24k1b5.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Wahida khan httpswww.facebook.comsharer1EWi24k1b5</span>
 </div>
-<div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer19UH8c8aqp" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19UH8c8aqp.mp4">
-    <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19UH8c8aqp.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Monika Sharma httpswww.facebook.comsharer19UH8c8aqp</span>
+<div class="video-card" data-title="Treritu Sunam httpswww.facebook.comsharer18vtPnqCzw" data-src="./Assets/video/Treritu Sunam httpswww.facebook.comsharer18vtPnqCzw.mp4">
+    <video src="./Assets/video/Treritu Sunam httpswww.facebook.comsharer18vtPnqCzw.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Treritu Sunam httpswww.facebook.comsharer18vtPnqCzw</span>
 </div>
-<div class="video-card" data-title="Krishna Singh httpswww.facebook.comsharer1DJyULpZo1" data-src="./Assets/video/Krishna Singh httpswww.facebook.comsharer1DJyULpZo1.mp4">
-    <video src="./Assets/video/Krishna Singh httpswww.facebook.comsharer1DJyULpZo1.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Krishna Singh httpswww.facebook.comsharer1DJyULpZo1</span>
+<div class="video-card" data-title="Theritu Sunam httpswww.facebook.comsharer1D1PaeLhHr" data-src="./Assets/video/Theritu Sunam httpswww.facebook.comsharer1D1PaeLhHr.mp4">
+    <video src="./Assets/video/Theritu Sunam httpswww.facebook.comsharer1D1PaeLhHr.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Theritu Sunam httpswww.facebook.comsharer1D1PaeLhHr</span>
 </div>
-<div class="video-card" data-title="Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP" data-src="./Assets/video/Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP.mp4">
-    <video src="./Assets/video/Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Kanishka Gupta httpswww.facebook.comsharer1BeSATDKiP</span>
+<div class="video-card" data-title="Sofia Ansari FC httpswww.facebook.comsharer1MSHyDpmuv" data-src="./Assets/video/Sofia Ansari FC httpswww.facebook.comsharer1MSHyDpmuv.mp4">
+    <video src="./Assets/video/Sofia Ansari FC httpswww.facebook.comsharer1MSHyDpmuv.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Sofia Ansari FC httpswww.facebook.comsharer1MSHyDpmuv</span>
 </div>
-<div class="video-card" data-title="Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH" data-src="./Assets/video/Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH.mp4">
-    <video src="./Assets/video/Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Dolrou rose httpswww.facebook.comsharer1CVuQVx8EH</span>
+<div class="video-card" data-title="Naina Singh httpswww.facebook.comsharer1AavMb8r5W" data-src="./Assets/video/Naina Singh httpswww.facebook.comsharer1AavMb8r5W.mp4">
+    <video src="./Assets/video/Naina Singh httpswww.facebook.comsharer1AavMb8r5W.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Naina Singh httpswww.facebook.comsharer1AavMb8r5W</span>
 </div>
-<div class="video-card" data-title="Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg" data-src="./Assets/video/Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg.mp4">
-    <video src="./Assets/video/Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Bhavya Agarwal httpswww.facebook.comsharer1DzjcYidyg</span>
+<div class="video-card" data-title="Naina Shing httpswww.facebook.comsharer1BJKwmPT3Y" data-src="./Assets/video/Naina Shing httpswww.facebook.comsharer1BJKwmPT3Y.mp4">
+    <video src="./Assets/video/Naina Shing httpswww.facebook.comsharer1BJKwmPT3Y.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Naina Shing httpswww.facebook.comsharer1BJKwmPT3Y</span>
 </div>
-<div class="video-card" data-title="Anika Verse httpswww.facebook.comsharer1PyfP5qbE8" data-src="./Assets/video/Anika Verse httpswww.facebook.comsharer1PyfP5qbE8.mp4">
-    <video src="./Assets/video/Anika Verse httpswww.facebook.comsharer1PyfP5qbE8.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Anika Verse httpswww.facebook.comsharer1PyfP5qbE8</span>
+<div class="video-card" data-title="Muskan Verma httpswww.facebook.comsharer1ByBZKusSe" data-src="./Assets/video/Muskan Verma httpswww.facebook.comsharer1ByBZKusSe.mp4">
+    <video src="./Assets/video/Muskan Verma httpswww.facebook.comsharer1ByBZKusSe.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Muskan Verma httpswww.facebook.comsharer1ByBZKusSe</span>
 </div>
-<div class="video-card" data-title="Aanchal01 httpswww.facebook.comsharer1ERPpZSArW" data-src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1ERPpZSArW.mp4">
-    <video src="./Assets/video/Aanchal01 httpswww.facebook.comsharer1ERPpZSArW.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Aanchal01 httpswww.facebook.comsharer1ERPpZSArW</span>
+<div class="video-card" data-title="AQOqYMJOhpfm1YbAtmEI87MFte3vyArPdGOJV8bj47wXsbO57aXtXT2JYHDFipkrmQ_lmoOwncMc2fGBU4w7os08MOKuC8wP0zRrYAnZWg" data-src="./Assets/video/AQOqYMJOhpfm1YbAtmEI87MFte3vyArPdGOJV8bj47wXsbO57aXtXT2JYHDFipkrmQ_lmoOwncMc2fGBU4w7os08MOKuC8wP0zRrYAnZWg.mp4">
+    <video src="./Assets/video/AQOqYMJOhpfm1YbAtmEI87MFte3vyArPdGOJV8bj47wXsbO57aXtXT2JYHDFipkrmQ_lmoOwncMc2fGBU4w7os08MOKuC8wP0zRrYAnZWg.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">AQOqYMJOhpfm1YbAtmEI87MFte3vyArPdGOJV8bj47wXsbO57aXtXT2JYHDFipkrmQ_lmoOwncMc2fGBU4w7os08MOKuC8wP0zRrYAnZWg</span>
 </div>
-<div class="video-card" data-title="Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo" data-src="./Assets/video/Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo.mp4">
-    <video src="./Assets/video/Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Aaira Sheikh httpswww.facebook.comsharer1EbBVDDdNo</span>
+<div class="video-card" data-title="aliyamirja dancer httpswww.facebook.comsharer1C9rCtM2xN" data-src="./Assets/video/aliyamirja dancer httpswww.facebook.comsharer1C9rCtM2xN.mp4">
+    <video src="./Assets/video/aliyamirja dancer httpswww.facebook.comsharer1C9rCtM2xN.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">aliyamirja dancer httpswww.facebook.comsharer1C9rCtM2xN</span>
 </div>
-<div class="video-card" data-title="The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e" data-src="./Assets/video/The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e.mp4">
-    <video src="./Assets/video/The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">The Anjali httpswww.facebook.comreel2272566226616392mibextid=9drbnH&s=yWDuG2&fs=e</span>
+<div class="video-card" data-title="Kheyali nath httpswww.facebook.comsharer1EY8MFJEgq" data-src="./Assets/video/Kheyali nath httpswww.facebook.comsharer1EY8MFJEgq.mp4">
+    <video src="./Assets/video/Kheyali nath httpswww.facebook.comsharer1EY8MFJEgq.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Kheyali nath httpswww.facebook.comsharer1EY8MFJEgq</span>
 </div>
-<div class="video-card" data-title="Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6" data-src="./Assets/video/Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6.mp4">
-    <video src="./Assets/video/Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Sneha Bakli Shorts httpswww.facebook.comsharer1dzUHvy3d6</span>
+<div class="video-card" data-title="Shani Kumar httpswww.facebook.comsharer194G86BtHZ" data-src="./Assets/video/Shani Kumar httpswww.facebook.comsharer194G86BtHZ.mp4">
+    <video src="./Assets/video/Shani Kumar httpswww.facebook.comsharer194G86BtHZ.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Shani Kumar httpswww.facebook.comsharer194G86BtHZ</span>
 </div>
-<div class="video-card" data-title="Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs" data-src="./Assets/video/Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs.mp4">
-    <video src="./Assets/video/Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Shwetaa411 httpswww.facebook.comsharer1JL9b9gDqs</span>
+<div class="video-card" data-title="SUmaiya Meem httpswww.facebook.comsharer1JNvnGjdSa" data-src="./Assets/video/SUmaiya Meem httpswww.facebook.comsharer1JNvnGjdSa.mp4">
+    <video src="./Assets/video/SUmaiya Meem httpswww.facebook.comsharer1JNvnGjdSa.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">SUmaiya Meem httpswww.facebook.comsharer1JNvnGjdSa</span>
 </div>
-<div class="video-card" data-title="sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ" data-src="./Assets/video/sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ.mp4">
-    <video src="./Assets/video/sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">sara gurpal httpswww.facebook.comsharer1LNMhZUbuJ</span>
+<div class="video-card" data-title="Sumaiya Meem httpswww.facebook.comsharer1D51p2sbqB" data-src="./Assets/video/Sumaiya Meem httpswww.facebook.comsharer1D51p2sbqB.mp4">
+    <video src="./Assets/video/Sumaiya Meem httpswww.facebook.comsharer1D51p2sbqB.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Sumaiya Meem httpswww.facebook.comsharer1D51p2sbqB</span>
 </div>
-<div class="video-card" data-title="Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N" data-src="./Assets/video/Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N.mp4">
-    <video src="./Assets/video/Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Sara Gurpal httpswww.facebook.comsharer1EPoUB6Z4N</span>
+<div class="video-card" data-title="Siddiqui Offical httpswww.facebook.comsharer1HVCMsKxN6" data-src="./Assets/video/Siddiqui Offical httpswww.facebook.comsharer1HVCMsKxN6.mp4">
+    <video src="./Assets/video/Siddiqui Offical httpswww.facebook.comsharer1HVCMsKxN6.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Siddiqui Offical httpswww.facebook.comsharer1HVCMsKxN6</span>
 </div>
-<div class="video-card" data-title="Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z" data-src="./Assets/video/Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z.mp4">
-    <video src="./Assets/video/Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Rajdhani Dohori httpswww.facebook.comsharer199CEegT4Z</span>
+<div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer1KfBzWixcx" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1KfBzWixcx.mp4">
+    <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1KfBzWixcx.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer1KfBzWixcx</span>
 </div>
-<div class="video-card" data-title="Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs" data-src="./Assets/video/Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs.mp4">
-    <video src="./Assets/video/Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Naeyera Sahanee httpswww.facebook.comsharer1DryY3oNzs</span>
+<div class="video-card" data-title="Public Figure httpswww.facebook.comsharer1VKQW3NGtq" data-src="./Assets/video/Public Figure httpswww.facebook.comsharer1VKQW3NGtq.mp4">
+    <video src="./Assets/video/Public Figure httpswww.facebook.comsharer1VKQW3NGtq.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Public Figure httpswww.facebook.comsharer1VKQW3NGtq</span>
 </div>
-<div class="video-card" data-title="Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj" data-src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj.mp4">
-    <video src="./Assets/video/Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Monika Sharma httpswww.facebook.comsharer19VfyYZ7aj</span>
+<div class="video-card" data-title="Discover Reels httpswww.facebook.comsharer1HRV3B3ZGE" data-src="./Assets/video/Discover Reels httpswww.facebook.comsharer1HRV3B3ZGE.mp4">
+    <video src="./Assets/video/Discover Reels httpswww.facebook.comsharer1HRV3B3ZGE.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Discover Reels httpswww.facebook.comsharer1HRV3B3ZGE</span>
 </div>
-<div class="video-card" data-title="hot dance queens httpswww.facebook.comsharer1YGZGQckrA" data-src="./Assets/video/hot dance queens httpswww.facebook.comsharer1YGZGQckrA.mp4">
-    <video src="./Assets/video/hot dance queens httpswww.facebook.comsharer1YGZGQckrA.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">hot dance queens httpswww.facebook.comsharer1YGZGQckrA</span>
+<div class="video-card" data-title="Dipti Sahani httpswww.facebook.comsharer1FG1yTjJ44" data-src="./Assets/video/Dipti Sahani httpswww.facebook.comsharer1FG1yTjJ44.mp4">
+    <video src="./Assets/video/Dipti Sahani httpswww.facebook.comsharer1FG1yTjJ44.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Dipti Sahani httpswww.facebook.comsharer1FG1yTjJ44</span>
 </div>
-<div class="video-card" data-title="Angel Enishu httpswww.facebook.comsharer19FPLGb1FY" data-src="./Assets/video/Angel Enishu httpswww.facebook.comsharer19FPLGb1FY.mp4">
-    <video src="./Assets/video/Angel Enishu httpswww.facebook.comsharer19FPLGb1FY.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Angel Enishu httpswww.facebook.comsharer19FPLGb1FY</span>
+<div class="video-card" data-title="Angel Samiksha httpswww.facebook.comsharer191EgY9Mbu" data-src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer191EgY9Mbu.mp4">
+    <video src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer191EgY9Mbu.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Angel Samiksha httpswww.facebook.comsharer191EgY9Mbu</span>
 </div>
-<div class="video-card" data-title="Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR" data-src="./Assets/video/Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR.mp4">
-    <video src="./Assets/video/Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR.mp4" muted loop preload="metadata"></video>
-    <span class="video-title">Anahi Antonella httpswww.facebook.comsharer18DBsdXdwR</span>
+<div class="video-card" data-title="Angel Samiksha httpswww.facebook.comsharer1FDBkPqNE1" data-src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer1FDBkPqNE1.mp4">
+    <video src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer1FDBkPqNE1.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Angel Samiksha httpswww.facebook.comsharer1FDBkPqNE1</span>
+</div>
+<div class="video-card" data-title="Angel Samiksha httpswww.facebook.comsharer18iChLsXrJ" data-src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer18iChLsXrJ.mp4">
+    <video src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer18iChLsXrJ.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Angel Samiksha httpswww.facebook.comsharer18iChLsXrJ</span>
+</div>
+<div class="video-card" data-title="Angel Samiksha httpswww.facebook.comsharer1JPMNq1ajR" data-src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer1JPMNq1ajR.mp4">
+    <video src="./Assets/video/Angel Samiksha httpswww.facebook.comsharer1JPMNq1ajR.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Angel Samiksha httpswww.facebook.comsharer1JPMNq1ajR</span>
+</div>
+<div class="video-card" data-title="Saradh curr httpswww.facebook.comsharer18kXEkXDbh" data-src="./Assets/video/Saradh curr httpswww.facebook.comsharer18kXEkXDbh.mp4">
+    <video src="./Assets/video/Saradh curr httpswww.facebook.comsharer18kXEkXDbh.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Saradh curr httpswww.facebook.comsharer18kXEkXDbh</span>
+</div>
+<div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer192fVCXSbN" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer192fVCXSbN.mp4">
+    <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer192fVCXSbN.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer192fVCXSbN</span>
+</div>
+<div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer1ERqJno47i" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1ERqJno47i.mp4">
+    <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1ERqJno47i.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer1ERqJno47i</span>
+</div>
+<div class="video-card" data-title="AQO2-oj-17yLh8c3G25XxlL9T_2br9ohU7J_KpOkbMzGPzY0iFuYY6f3iaeHWHTOB8-rHCLkhEi2RKmmxRK4WrCXda0CNCjLe086XMa7Qw" data-src="./Assets/video/AQO2-oj-17yLh8c3G25XxlL9T_2br9ohU7J_KpOkbMzGPzY0iFuYY6f3iaeHWHTOB8-rHCLkhEi2RKmmxRK4WrCXda0CNCjLe086XMa7Qw.mp4">
+    <video src="./Assets/video/AQO2-oj-17yLh8c3G25XxlL9T_2br9ohU7J_KpOkbMzGPzY0iFuYY6f3iaeHWHTOB8-rHCLkhEi2RKmmxRK4WrCXda0CNCjLe086XMa7Qw.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">AQO2-oj-17yLh8c3G25XxlL9T_2br9ohU7J_KpOkbMzGPzY0iFuYY6f3iaeHWHTOB8-rHCLkhEi2RKmmxRK4WrCXda0CNCjLe086XMa7Qw</span>
+</div>
+<div class="video-card" data-title="dancing with anj httpswww.facebook.comsharer18GeVw8bok" data-src="./Assets/video/dancing with anj httpswww.facebook.comsharer18GeVw8bok.mp4">
+    <video src="./Assets/video/dancing with anj httpswww.facebook.comsharer18GeVw8bok.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">dancing with anj httpswww.facebook.comsharer18GeVw8bok</span>
+</div>
+<div class="video-card" data-title="Lubna Akter Bably httpswww.facebook.comsharer1C9yiw9oRU" data-src="./Assets/video/Lubna Akter Bably httpswww.facebook.comsharer1C9yiw9oRU.mp4">
+    <video src="./Assets/video/Lubna Akter Bably httpswww.facebook.comsharer1C9yiw9oRU.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Lubna Akter Bably httpswww.facebook.comsharer1C9yiw9oRU</span>
+</div>
+<div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer1Bh6sJ5vsL" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1Bh6sJ5vsL.mp4">
+    <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1Bh6sJ5vsL.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer1Bh6sJ5vsL</span>
+</div>
+<div class="video-card" data-title="Pratima Pramanick httpswww.facebook.comsharer1BrN1UdhBx" data-src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1BrN1UdhBx.mp4">
+    <video src="./Assets/video/Pratima Pramanick httpswww.facebook.comsharer1BrN1UdhBx.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Pratima Pramanick httpswww.facebook.comsharer1BrN1UdhBx</span>
+</div>
+<div class="video-card" data-title="Mansi Negi httpswww.facebook.comsharer19Rv9yWGX7" data-src="./Assets/video/Mansi Negi httpswww.facebook.comsharer19Rv9yWGX7.mp4">
+    <video src="./Assets/video/Mansi Negi httpswww.facebook.comsharer19Rv9yWGX7.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Mansi Negi httpswww.facebook.comsharer19Rv9yWGX7</span>
+</div>
+<div class="video-card" data-title="Sneha Bakli Shorts httpswww.facebook.comsharer1H5fgZJuux" data-src="./Assets/video/Sneha Bakli Shorts httpswww.facebook.comsharer1H5fgZJuux.mp4">
+    <video src="./Assets/video/Sneha Bakli Shorts httpswww.facebook.comsharer1H5fgZJuux.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Sneha Bakli Shorts httpswww.facebook.comsharer1H5fgZJuux</span>
+</div>
+<div class="video-card" data-title="Priti Dancer httpswww.facebook.comsharer1BWgFRaUG1" data-src="./Assets/video/Priti Dancer httpswww.facebook.comsharer1BWgFRaUG1.mp4">
+    <video src="./Assets/video/Priti Dancer httpswww.facebook.comsharer1BWgFRaUG1.mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Priti Dancer httpswww.facebook.comsharer1BWgFRaUG1</span>
 </div>
 
+
+
+<div class="video-card" data-title="Super hot stepsister spend one night with her stepbrother _ Clip 1 (1)" data-src="./Assets/video/Super hot stepsister spend one night with her stepbrother _ Clip 1 (1).mp4">
+    <video src="./Assets/video/Super hot stepsister spend one night with her stepbrother _ Clip 1 (1).mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Super hot stepsister spend one night with her stepbrother _ Clip 1 (1)</span>
+</div>
+<div class="video-card" data-title="pawg brunette in sexy lingerie will not be left without CREAMPIE after passionate romantic sex _ Clip 1 (1)" data-src="./Assets/video/pawg brunette in sexy lingerie will not be left without CREAMPIE after passionate romantic sex _ Clip 1 (1).mp4">
+    <video src="./Assets/video/pawg brunette in sexy lingerie will not be left without CREAMPIE after passionate romantic sex _ Clip 1 (1).mp4" muted loop preload="metadata"></video>
+    <span class="video-title">pawg brunette in sexy lingerie will not be left without CREAMPIE after passionate romantic sex _ Clip 1 (1)</span>
+</div>
+<div class="video-card" data-title="Come on naughty boy let's fucked me hard _ Clip 1 (1)" data-src="./Assets/video/Come on naughty boy let's fucked me hard _ Clip 1 (1).mp4">
+    <video src="./Assets/video/Come on naughty boy let's fucked me hard _ Clip 1 (1).mp4" muted loop preload="metadata"></video>
+    <span class="video-title">Come on naughty boy let's fucked me hard _ Clip 1 (1)</span>
+</div>
 
     </section>
 
-    <!-- রিলস ভিডিও মোডাল প্লেয়ার -->
+    <!-- ভিডিও মোডাল -->
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
             <div class="modal-controls">
-                <button class="ctrl-btn max-btn" id="maxBtn" title="Full Screen"><i class="fa-solid fa-expand"></i></button>
-                <button class="ctrl-btn minus-btn" id="minusBtn" title="Minimize"><i class="fa-solid fa-minus"></i></button>
+                <button class="ctrl-btn" id="rewindBtn" title="-10s"><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="ctrl-btn" id="forwardBtn" title="+10s"><i class="fa-solid fa-rotate-right"></i></button>
+                <button class="ctrl-btn" id="minusBtn" title="Minimize"><i class="fa-solid fa-minus"></i></button>
+                <button class="ctrl-btn" id="maxBtn" title="Fullscreen"><i class="fa-solid fa-expand"></i></button>
                 <button class="ctrl-btn close-btn" id="closeBtn" title="Close"><i class="fa-solid fa-xmark"></i></button>
             </div>
-
             <div class="reel-player-box">
                 <div class="video-wrapper" id="videoWrapper">
-                    <video id="modalVideo" controls autoplay playsinline loop></video>
-                    
-                    <div class="skip-indicator left" id="skipLeft"><i class="fa-solid fa-rotate-left"></i> -10s</div>
-                    <div class="skip-indicator right" id="skipRight"><i class="fa-solid fa-rotate-right"></i> +10s</div>
-                    
+                    <video id="modalVideo" controls></video>
+                    <div class="skip-indicator left" id="skipLeft">-10s</div>
+                    <div class="skip-indicator right" id="skipRight">+10s</div>
                     <div class="reel-info">
-                        <h2 id="modalVideoTitle">Movie Title</h2>
+                        <h2 id="modalVideoTitle"></h2>
                     </div>
-                </div>
-                
-                <div class="skip-buttons">
-                    <button id="rewindBtn" class="skip-action-btn"><i class="fa-solid fa-backward-step"></i> -10s</button>
-                    <button id="forwardBtn" class="skip-action-btn">+10s <i class="fa-solid fa-forward-step"></i></button>
                 </div>
             </div>
         </div>

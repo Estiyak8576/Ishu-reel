@@ -11,18 +11,80 @@ document.addEventListener("DOMContentLoaded", () => {
     const skipLeft = document.getElementById("skipLeft");
     const skipRight = document.getElementById("skipRight");
     const videoWrapper = document.getElementById("videoWrapper");
+    
+    // সার্চ এলিমেন্টস
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const noResults = document.getElementById("noResults");
 
-    let videoDataList = [];
+    let activeVideoList = [];
     let currentVideoIndex = 0;
     let isScrolling = false;
 
-    // ১. ভিডিও ডাটা রিড করা এবং কার্ডে হোভার প্রিভিউ
-    videoCards.forEach((card, index) => {
-        const previewVideo = card.querySelector("video");
-        const title = card.getAttribute("data-title");
-        const fullSrc = card.getAttribute("data-src") || previewVideo.src;
+    // ১. সার্চ লজিক ফংশন
+    function performSearch() {
+        if (!searchInput) return;
 
-        videoDataList.push({ title, src: fullSrc, index });
+        const query = searchInput.value.toLowerCase().trim();
+        let matchCount = 0;
+
+        videoCards.forEach((card) => {
+            const title = (card.getAttribute("data-title") || card.querySelector(".video-title")?.textContent || "").toLowerCase();
+
+            if (title.includes(query)) {
+                card.style.display = ""; // ভিডিও কার্ড দেখাবে
+                matchCount++;
+            } else {
+                card.style.display = "none"; // হাইড করবে
+            }
+        });
+
+        if (noResults) {
+            noResults.style.display = matchCount === 0 ? "flex" : "none";
+        }
+
+        updateActiveVideoList();
+    }
+
+    // ২. অ্যাক্টিভ ভিডিও তালিকা আপডেট
+    function updateActiveVideoList() {
+        activeVideoList = [];
+        let index = 0;
+
+        videoCards.forEach((card) => {
+            if (card.style.display !== "none") {
+                const title = card.getAttribute("data-title") || card.querySelector(".video-title")?.textContent;
+                const previewVideo = card.querySelector("video");
+                const fullSrc = card.getAttribute("data-src") || (previewVideo ? previewVideo.src : "");
+
+                activeVideoList.push({ title, src: fullSrc, cardElement: card });
+
+                const currentIndex = index;
+                card.onclick = () => {
+                    openModal(currentIndex);
+                };
+
+                index++;
+            }
+        });
+    }
+
+    // ৩. ইভেন্ট লিসেনার সেটআপ
+    if (searchInput) {
+        searchInput.addEventListener("input", performSearch);
+        searchInput.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") performSearch();
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener("click", performSearch);
+    }
+
+    // ৪. হোভার প্লে সেটআপ
+    videoCards.forEach((card) => {
+        const previewVideo = card.querySelector("video");
+        if (!previewVideo) return;
 
         card.addEventListener("mouseenter", () => {
             previewVideo.muted = true;
@@ -33,18 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
             previewVideo.pause();
             previewVideo.currentTime = 0;
         });
-
-        card.addEventListener("click", () => {
-            openModal(index);
-        });
     });
 
-    // ২. মোডালে রিলে নির্দিষ্ট ভিডিওটি প্লে করা
+    updateActiveVideoList();
+
+    // ৫. মোডাল প্লেয়ার
     function openModal(index) {
-        if (index < 0 || index >= videoDataList.length) return;
+        if (index < 0 || index >= activeVideoList.length) return;
 
         currentVideoIndex = index;
-        const item = videoDataList[currentVideoIndex];
+        const item = activeVideoList[currentVideoIndex];
 
         modalVideo.src = item.src;
         modalVideoTitle.textContent = item.title;
@@ -53,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modalVideo.load();
         modalVideo.muted = false; 
-        
+
         const playPromise = modalVideo.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
@@ -63,71 +123,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ৩. রিলস মাউস স্ক্রোল লজিক (পরের ও আগের ভিডিওতে সুইচ করা)
-    videoWrapper.addEventListener("wheel", (e) => {
-        if (!videoModal.classList.contains("active") || isScrolling) return;
+    // ৬. স্ক্রোল নেভিগেশন
+    if (videoWrapper) {
+        videoWrapper.addEventListener("wheel", (e) => {
+            if (!videoModal.classList.contains("active") || isScrolling) return;
 
-        isScrolling = true;
-        setTimeout(() => { isScrolling = false; }, 600);
+            isScrolling = true;
+            setTimeout(() => { isScrolling = false; }, 600);
 
-        if (e.deltaY > 0) {
-            if (currentVideoIndex < videoDataList.length - 1) {
-                openModal(currentVideoIndex + 1);
-            }
-        } else {
-            if (currentVideoIndex > 0) {
-                openModal(currentVideoIndex - 1);
-            }
-        }
-    });
-
-    // ৪. মোবাইল টাচ সোয়াইপ লজিক (Up/Down Swipe)
-    let touchStartY = 0;
-    let touchEndY = 0;
-
-    videoWrapper.addEventListener("touchstart", (e) => {
-        touchStartY = e.changedTouches[0].screenY;
-    }, false);
-
-    videoWrapper.addEventListener("touchend", (e) => {
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipe();
-    }, false);
-
-    function handleSwipe() {
-        const swipeDistance = touchStartY - touchEndY;
-        if (Math.abs(swipeDistance) > 50) {
-            if (swipeDistance > 0) {
-                if (currentVideoIndex < videoDataList.length - 1) {
-                    openModal(currentVideoIndex + 1);
-                }
+            if (e.deltaY > 0) {
+                if (currentVideoIndex < activeVideoList.length - 1) openModal(currentVideoIndex + 1);
             } else {
-                if (currentVideoIndex > 0) {
-                    openModal(currentVideoIndex - 1);
-                }
+                if (currentVideoIndex > 0) openModal(currentVideoIndex - 1);
             }
-        }
+        });
     }
 
-    // ৫. ১০ সেকেন্ড স্কিপ কন্ট্রোল
+    // ৭. ১০ সেকেন্ড স্কিপ কন্ট্রোল
     function skipTime(seconds, indicator) {
         modalVideo.currentTime += seconds;
-        indicator.classList.add("show");
-        setTimeout(() => indicator.classList.remove("show"), 500);
+        if (indicator) {
+            indicator.classList.add("show");
+            setTimeout(() => indicator.classList.remove("show"), 500);
+        }
     }
 
     if (rewindBtn) rewindBtn.addEventListener("click", () => skipTime(-10, skipLeft));
     if (forwardBtn) forwardBtn.addEventListener("click", () => skipTime(10, skipRight));
 
-    // ৬. ফুলস্ক্রিন, মিনিমাইজ ও ক্লোজ বাটন
+    // ৮. মোডাল বাটন
     if (maxBtn) {
         maxBtn.addEventListener("click", () => {
             if (!document.fullscreenElement) {
-                if (modalVideo.requestFullscreen) {
-                    modalVideo.requestFullscreen();
-                }
+                modalVideo.requestFullscreen?.();
             } else {
-                document.exitFullscreen();
+                document.exitFullscreen?.();
             }
         });
     }

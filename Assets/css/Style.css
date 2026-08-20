@@ -44,11 +44,76 @@ body {
     color: #ffffff;
 }
 
+.nav_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .navbar_container a {
     font-size: 20px;
     color: #ffffff; 
     text-decoration: none;
     font-weight: 500;
+}
+
+/* সার্চ ইনপুট স্টাইল */
+.search_box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 6px 15px;
+    backdrop-filter: blur(5px);
+}
+
+.search_box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    width: 140px;
+    transition: width 0.3s ease;
+}
+
+.search_box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search_box input:focus {
+    width: 200px;
+}
+
+.search_box i {
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 2px 5px;
+    transition: transform 0.2s ease;
+}
+
+.search_box i:hover {
+    transform: scale(1.2);
+}
+
+/* নো ম্যাচ মেসেজ স্টাইল */
+.no-results {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 107, 107, 0.4);
+    padding: 20px 30px;
+    border-radius: 12px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 /* হেডলাইন বক্স */
@@ -142,7 +207,7 @@ body {
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
 }
 
-/* রিলস মোডাল প্লেয়ার */
+/* রিলস মোডাল প্লেয়ার */
 .video-modal {
     position: fixed;
     top: 0;
@@ -234,7 +299,6 @@ body {
     justify-content: center;
 }
 
-/* এখানে contain দেওয়া হয়েছে যেন ভিডিওটি না কেটে পুরোটা দেখা যায় */
 .video-wrapper video {
     width: 100%;
     height: 100%;
@@ -281,33 +345,6 @@ body {
 .skip-indicator.right { right: 8%; }
 .skip-indicator.show { opacity: 1; }
 
-.skip-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.skip-action-btn {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #fff;
-    padding: 8px 0;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.skip-action-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* মিনিমাইজড মোড */
 .video-modal.minimized {
     top: auto;
     left: auto;
@@ -325,13 +362,23 @@ body {
     padding: 8px;
 }
 
-.video-modal.minimized .skip-buttons,
 .video-modal.minimized .reel-info {
     display: none;
 }
 
-/* মোবাইল রেসপন্সিভ */
 @media (max-width: 768px) {
+    .navbar_container {
+        padding: 15px 20px;
+    }
+
+    .search_box input {
+        width: 100px;
+    }
+
+    .search_box input:focus {
+        width: 130px;
+    }
+
     .orginal_video {
         display: flex;
         flex-direction: column;
