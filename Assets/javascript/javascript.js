@@ -21,7 +21,38 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentVideoIndex = 0;
     let isScrolling = false;
 
+    // ==========================================
+    // ০. পারফর্ম্যান্স অপটিমাইজেশন (LAZY LOADING)
+    // ==========================================
+    videoCards.forEach((card) => {
+        const previewVideo = card.querySelector("video");
+        if (previewVideo) {
+            // পেজ লোডের সময় ব্যাকগ্রাউন্ড ডাউনলোড বন্ধ রাখা
+            previewVideo.setAttribute("preload", "none");
+        }
+    });
+
+    // Intersection Observer: স্ক্রিনে আসলে তবেই মেটাডেটা প্রিলোড হবে
+    const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                video.preload = "metadata";
+                observer.unobserve(video); // একবার ট্রিগার হলে পর্যবেক্ষণ বন্ধ
+            }
+        });
+    }, { rootMargin: "200px 0px" });
+
+    videoCards.forEach((card) => {
+        const previewVideo = card.querySelector("video");
+        if (previewVideo) {
+            lazyVideoObserver.observe(previewVideo);
+        }
+    });
+
+    // ==========================================
     // ১. সার্চ লজিক ফংশন
+    // ==========================================
     function performSearch() {
         if (!searchInput) return;
 
@@ -46,7 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateActiveVideoList();
     }
 
+    // ==========================================
     // ২. অ্যাক্টিভ ভিডিও তালিকা আপডেট
+    // ==========================================
     function updateActiveVideoList() {
         activeVideoList = [];
         let index = 0;
@@ -69,7 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ==========================================
     // ৩. ইভেন্ট লিসেনার সেটআপ
+    // ==========================================
     if (searchInput) {
         searchInput.addEventListener("input", performSearch);
         searchInput.addEventListener("keyup", (e) => {
@@ -81,13 +116,16 @@ document.addEventListener("DOMContentLoaded", () => {
         searchBtn.addEventListener("click", performSearch);
     }
 
-    // ৪. হোভার প্লে সেটআপ (কার্ডে হোভার করলে মিউট অবস্থায় প্রিভিউ হবে)
+    // ==========================================
+    // ৪. হোভার প্লে সেটআপ (মিউট অবস্থায় প্রিভিউ)
+    // ==========================================
     videoCards.forEach((card) => {
         const previewVideo = card.querySelector("video");
         if (!previewVideo) return;
 
         card.addEventListener("mouseenter", () => {
             previewVideo.muted = true;
+            previewVideo.preload = "metadata";
             previewVideo.play().catch(() => {});
         });
 
@@ -99,7 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateActiveVideoList();
 
-    // ৫. মোডাল প্লেয়ার ওপেন (শব্দসহ প্লে করার লজিক)
+    // ==========================================
+    // ৫. মোডাল প্লেয়ার ওপেন
+    // ==========================================
     function openModal(index) {
         if (index < 0 || index >= activeVideoList.length) return;
 
@@ -112,35 +152,32 @@ document.addEventListener("DOMContentLoaded", () => {
         videoModal.classList.remove("minimized");
 
         modalVideo.load();
-        
-        // প্রথমে মিউট তুলে দিয়ে শব্দ চালু করা
         modalVideo.muted = false; 
 
-        // ইউজার ক্লিকে প্লে করায় ব্রাউজার শব্দসহ প্লে করতে দিবে
         const playPromise = modalVideo.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
-                // ব্রাউজার কোনো কারণে ব্লক করলে শুধুমাত্র তখন মিউট হয়ে প্লে হবে
                 modalVideo.muted = true;
-                modalVideo.play();
+                modalVideo.play().catch(() => {});
             });
         }
 
-        // মোবাইল ডিভাইসে থাকলে সরাসরি ফুলস্ক্রিন করা
+        // মোবাইল ডিভাইসে ফুলস্ক্রিন
         if (window.innerWidth <= 768) {
             setTimeout(() => {
                 if (modalVideo.requestFullscreen) {
                     modalVideo.requestFullscreen().catch(() => {});
-                } else if (modalVideo.webkitRequestFullscreen) { /* Safari / iOS */
+                } else if (modalVideo.webkitRequestFullscreen) {
                     modalVideo.webkitRequestFullscreen();
                 }
             }, 300);
         }
     }
 
-    // ৬. মাউস হুইল ও টাচ সোয়াইপ নেভিগেশন (উপরে/নিচে স্ক্রোল করার জন্য)
+    // ==========================================
+    // ৬. মাউস হুইল ও টাচ সোয়াইপ নেভিগেশন
+    // ==========================================
     if (videoWrapper) {
-        // মাউস হুইল
         videoWrapper.addEventListener("wheel", (e) => {
             if (!videoModal.classList.contains("active") || isScrolling) return;
 
@@ -154,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // মোবাইলের জন্য টাচ সোয়াইপ লজিক
         let touchStartY = 0;
         let touchEndY = 0;
 
@@ -168,22 +204,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const swipeDistance = touchStartY - touchEndY;
 
-            if (Math.abs(swipeDistance) > 50) { // ৫০ পিক্সেলের বেশি সোয়াইপ হলে ট্রিগার হবে
+            if (Math.abs(swipeDistance) > 50) {
                 isScrolling = true;
                 setTimeout(() => { isScrolling = false; }, 600);
 
                 if (swipeDistance > 0) {
-                    // উপরে সোয়াইপ (পরের ভিডিও)
                     if (currentVideoIndex < activeVideoList.length - 1) openModal(currentVideoIndex + 1);
                 } else {
-                    // নিচে সোয়াইপ (আগের ভিডিও)
                     if (currentVideoIndex > 0) openModal(currentVideoIndex - 1);
                 }
             }
         }, { passive: true });
     }
 
+    // ==========================================
     // ৭. ১০ সেকেন্ড স্কিপ কন্ট্রোল
+    // ==========================================
     function skipTime(seconds, indicator) {
         modalVideo.currentTime += seconds;
         if (indicator) {
@@ -195,7 +231,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rewindBtn) rewindBtn.addEventListener("click", () => skipTime(-10, skipLeft));
     if (forwardBtn) forwardBtn.addEventListener("click", () => skipTime(10, skipRight));
 
+    // ==========================================
     // ৮. মোডাল বাটন
+    // ==========================================
     if (maxBtn) {
         maxBtn.addEventListener("click", () => {
             if (!document.fullscreenElement) {
@@ -229,12 +267,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ৯. অ্যাপ/ট্যাব ব্যাকগ্রাউন্ডে গেলে ভিডিও পজ করার হ্যান্ডলার (Page Visibility API)
+    // ==========================================
+    // ৯. অ্যাপ/ট্যাব ব্যাকগ্রাউন্ডে গেলে ভিডিও পজ করা
+    // ==========================================
     document.addEventListener("visibilitychange", () => {
         const allVideos = document.querySelectorAll("video");
 
         if (document.hidden) {
-            // ট্যাব বা অ্যাপ হাইড হলে ব্যাকগ্রাউন্ডে ভিডিও পজ হবে
             allVideos.forEach((video) => {
                 if (!video.paused) {
                     video.pause();
@@ -242,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         } else {
-            // পুনরায় অ্যাপে ফিরে এলে যে ভিডিওগুলো চলছিল তা প্লে হবে
             allVideos.forEach((video) => {
                 if (video.dataset.wasPlaying === "true") {
                     video.play().catch(() => {});
