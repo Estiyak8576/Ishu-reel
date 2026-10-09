@@ -16,12 +16,12 @@ body {
 /* নেভবার */
 .navbar {
     width: 100%;
-    background: rgba(255, 255, 255, 0.15); 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(15, 15, 17, 0.75); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     position: fixed;
     top: 0;
@@ -61,11 +61,10 @@ body {
 .search_box {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 20px;
     padding: 6px 15px;
-    backdrop-filter: blur(5px);
 }
 
 .search_box input {
@@ -129,7 +128,7 @@ body {
     height: 60px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.08); 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px; 
     display: flex;
@@ -144,6 +143,7 @@ body {
     font-size: 24px;
     color: #ffffff;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    will-change: transform; /* অ্যানিমেশন স্মুথ করবে */
     animation: moveright 12s linear infinite;
 }
 
@@ -158,9 +158,8 @@ body {
     max-width: 1300px;
     margin: 25px auto;
     padding: 25px;
-    background: rgba(255, 255, 255, 0.08); 
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -174,10 +173,14 @@ body {
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
     background: #000;
     aspect-ratio: 9 / 16;
     height: 380px;
+    /* পারফরম্যান্স অপটিমাইজেশন */
+    content-visibility: auto; 
+    contain-intrinsic-size: 220px 380px;
+    will-change: transform;
 }
 
 .video-card video {
@@ -185,6 +188,9 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    /* জিপিইউ হার্ডওয়্যার অ্যাক্সিলারেশন চালুর জন্য */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .video-title {
@@ -202,9 +208,9 @@ body {
 }
 
 .video-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03) translateZ(0);
     z-index: 5;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
 }
 
 /* রিলস মোডাল প্লেয়ার */
@@ -214,15 +220,14 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.88);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 .video-modal.active {
@@ -235,10 +240,9 @@ body {
     max-width: 420px;
     height: 85vh;
     max-height: 750px;
-    background: rgba(20, 20, 25, 0.85);
+    background: rgba(20, 20, 25, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    backdrop-filter: blur(20px);
     position: relative;
     padding: 15px;
     display: flex;
@@ -304,6 +308,7 @@ body {
     height: 100%;
     object-fit: contain; 
     background-color: #000;
+    transform: translateZ(0);
 }
 
 .reel-info {
@@ -337,7 +342,7 @@ body {
     font-weight: bold;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     z-index: 10;
 }
 
